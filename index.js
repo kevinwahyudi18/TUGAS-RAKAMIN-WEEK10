@@ -2,6 +2,7 @@ const express = require("express");
 const pool = require("./queries");
 const bodyParser = require("body-parser");
 const movies = require("./routes/movies.js");
+const users = require("./routes/users.js")
 
 const app = express();
 const port = 3000;
@@ -10,6 +11,7 @@ const path = require("path");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/movies", movies);
+app.use("/users", users);
 app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 
